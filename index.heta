@@ -1,0 +1,38 @@
+// add qsp units
+include ./qsp-units.heta;
+
+// @Const
+include ./NEU_IL6_model.xlsx type table with { sheet: 0, omitRows: 1 };
+// @Record
+include ./NEU_IL6_model.xlsx type table with { sheet: 1, omitRows: 1 };
+// @Compartment
+include ./NEU_IL6_model.xlsx type table with { sheet: 2, omitRows: 1 };
+// @Species
+include ./NEU_IL6_model.xlsx type table with { sheet: 3, omitRows: 1 };
+// @Reaction
+include ./NEU_IL6_model.xlsx type table with { sheet: 4, omitRows: 1 };
+
+// @Const
+include ./PK_Sari.xlsx type table with { sheet: 0, omitRows: 3 };
+// @Record
+include ./PK_Sari.xlsx type table with { sheet: 1, omitRows: 3 };
+// @Compartment
+include ./PK_Sari.xlsx type table with { sheet: 2, omitRows: 3 };
+// @Species
+include ./PK_Sari.xlsx type table with { sheet: 3, omitRows: 3 };
+// @Reaction
+include ./PK_Sari.xlsx type table with { sheet: 4, omitRows: 3 };
+
+t { units: hour };
+
+Sari_dose @Const {num: 150, units: mg};
+
+Dose_on_single @TimeSwitcher {start: 168};
+Sari_sc [Dose_on_single]= Sari_sc + Sari_dose;
+
+Dose_on_Q2W @TimeSwitcher {start: 168, period: 336};
+Sari_sc [Dose_on_Q2W]= Sari_sc + Sari_dose;
+
+Rab_on @TimeSwitcher {start: 168};
+IL6_pl [Rab_on]= 1300;
+

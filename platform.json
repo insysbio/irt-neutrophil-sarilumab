@@ -1,0 +1,22 @@
+{
+  "builderVersion": ">=0.11.1",
+  "id": "NEU_sari_project",
+  "notes": "Sarilumab testing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "options": {
+    "unitsCheck": true
+  },
+  "importModule": {
+    "type": "heta",
+    "source": "./index.heta"
+  },
+  "export": [
+    { "format": "XLSX", "filepath": "excel", "omitRows": 0, "splitByClass": true },
+    { "format": "DynMS" },
+    { "format": "Simbio" },
+    { "format": "SBML" },
+    { "format": "DBSolve" },
+    { "format": "Dot" }
+  ]
+}
