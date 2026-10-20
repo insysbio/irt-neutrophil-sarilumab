@@ -1,7 +1,7 @@
 {
   "builderVersion": ">=0.11.1",
-  "id": "NEU_sari_project",
-  "notes": "Sarilumab testing",
+  "id": "irt-neutrophil-sarilumab",
+  "notes": "Sarilumab model created with IRT",
   "version": "1.0.0",
   "license": "MIT",
   "options": {
